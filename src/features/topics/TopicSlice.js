@@ -4,26 +4,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const topicsSlice = createSlice({
     name: 'topics',
     initialState: {
-        topics: [
-            {
-            name: 'parker',
-            id: '123',
-            icon: '234234',
-            quizIds: [],
-            }
-        ]
+        topics: []
     },
     reducers: {
         addTopic(state, action) {
+            // init empty array for quizIds as it isn't declared in the obj returned from the form
             action.payload.quizIds = [];
+            
+            // push new topic + empty quizId array into store
             state.topics.push(action.payload)
         },
         addQuizId(state, action) {
             // payload = {quizId: '123', topicId: '456'}
             let quizId = action.payload.id
             // filtering current topics array to see if I can grab the matching topic id
-            // clean this up a bit
-            state.topics.filter((item) => item.id === action.payload.topicId ? item.quizIds.push(quizId) : console.log(item.id, 'false'))
+            state.topics.filter((item) => item.id === action.payload.topicId ? item.quizIds.push(quizId) : null)
         }
     },
 });
