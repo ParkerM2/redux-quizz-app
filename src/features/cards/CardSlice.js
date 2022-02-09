@@ -4,9 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const CardsSlice = createSlice({
     name: 'cards',
     initialState: {
-        cards: {
-            // '123': {front: 'front', back: 'back'} example
-        }
+        cards: {}
     },
     reducers: {
         addCard(state, action) {

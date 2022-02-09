@@ -5,14 +5,7 @@ import { addQuizId } from "../topics/TopicSlice";
 const quizSlice = createSlice({
     name: 'quizzes',
     initialState: {
-        quizzes: [
-            {
-                id: '123',
-                name: 'quiz name',
-                topicId: '456',
-                cardIds: []
-            }
-        ]
+        quizzes: []
     },
     reducers: {
         addQuiz(state, action) {
